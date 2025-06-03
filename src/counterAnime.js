@@ -1,8 +1,9 @@
 class CounterAnime {
-    constructor(initialValue = 1n, parent) {
+    constructor(initialValue = 1n, parent, padLength = 0) {
+        this.padLength = padLength;
         this.number = BigInt(initialValue);
         this.minusActive = this.number < 0n;
-        this.numberStr = this.number.toString().replace("-", "");
+        this.numberStr = this._formatNumber(this.number);
         this.length = this.numberStr.length;
         this.elements = [];
 
@@ -18,11 +19,18 @@ class CounterAnime {
         this._initSlides();
     }
 
-    _create(tag, className, text ) {
+    _create(tag, className, text) {
         const el = document.createElement(tag);
         el.className = className;
         if (text !== undefined) el.textContent = text;
         return el;
+    }
+
+    _formatNumber(num) {
+        return num
+            .toString()
+            .replace("-", "")
+            .padStart(this.padLength, "0");
     }
 
     _initSlides() {
@@ -73,7 +81,7 @@ class CounterAnime {
             const prevLength = this.length;
             this.number = parsed;
             this.minusActive = this.number < 0n;
-            this.numberStr = this.number.toString().replace("-", "");
+            this.numberStr = this._formatNumber(this.number);
             this.length = this.numberStr.length;
             this._updateSlides(prevLength);
         } catch (err) {
@@ -85,7 +93,7 @@ class CounterAnime {
         const prevLength = this.length;
         this.number += this.minusActive ? -1n : 1n;
         if (this.number === 0n) this.minusActive = false;
-        this.numberStr = this.number.toString().replace("-", "");
+        this.numberStr = this._formatNumber(this.number);
         this.length = this.numberStr.length;
         this._updateSlides(prevLength);
     };
@@ -94,7 +102,7 @@ class CounterAnime {
         const prevLength = this.length;
         if (this.number === 0n) this.minusActive = true;
         this.number += this.minusActive ? 1n : -1n;
-        this.numberStr = this.number.toString().replace("-", "");
+        this.numberStr = this._formatNumber(this.number);
         this.length = this.numberStr.length;
         this._updateSlides(prevLength);
     };
@@ -103,4 +111,3 @@ class CounterAnime {
         return this.numberAnimation;
     }
 }
-

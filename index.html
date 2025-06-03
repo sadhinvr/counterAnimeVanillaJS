@@ -7,23 +7,72 @@
     <title> number animation </title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./dist/style.css">
     <script src="./src/counterAnime.js"></script>
 </head>
 
 <body>
-    <div class="btns">
-        <div class="btn">+</div>
-        <div class="btn">-</div>
-        <input type="number">
+    <div class="container">
+        <h1>Counter Anime </h1>
+
+        <div class="counter1"></div>
+        
+        <div class="btns">
+            <div class="btn">+</div>
+            <div class="btn">-</div>
+            <input type="number">
+        </div>
+
+        <h2>Clock</h2>
+        <div class="clock">
+            <div class="hour"></div> :
+            <div class="min"></div> :
+            <div class="sec"></div>
+
+            <div class="ampm">PM</div>
+        </div>
     </div>
 
     <script>
         // Example usage:
-        const counter = new CounterAnime(1n, document.body);
+        const counter = new CounterAnime(1n, document.querySelector('.counter1'));
         const btns = document.querySelector(".btns").children;
         btns[0].addEventListener("click", counter.increment);
         btns[1].addEventListener("click", counter.decrement);
-        btns[2].addEventListener("change", (e) => counter.setNumber(e.target.value));
+        btns[2].addEventListener("input", (e) => counter.setNumber(e.target.value));
+
+        // Clock setup
+        const hour = new CounterAnime(0n, document.querySelector('.hour'), 2); // 2-digit format like 01, 02
+        const min = new CounterAnime(0n, document.querySelector('.min'), 2);
+        const sec = new CounterAnime(0n, document.querySelector('.sec'), 2);
+
+        const ampm = document.querySelector('.ampm'); // set innerText to AM/PM
+
+        // Initial time setup
+        function updateClock() {
+            const now = new Date();
+            let h = now.getHours();
+            const m = now.getMinutes();
+            const s = now.getSeconds();
+
+            const isPM = h >= 12;
+            ampm.innerText = isPM ? "PM" : "AM";
+
+            h = h % 12;
+            if (h === 0) h = 12; // convert 0 to 12 for 12AM/PM
+
+            // Format with leading zeros
+            hour.setNumber(String(h).padStart(2, '0'));
+            min.setNumber(String(m).padStart(2, '0'));
+            sec.setNumber(String(s).padStart(2, '0'));
+        }
+
+        updateClock(); // Set initial values immediately
+
+        // Update every second
+        setInterval(updateClock, 1000);
+
+
 
     </script>
 
