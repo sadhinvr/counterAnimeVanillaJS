@@ -22,6 +22,13 @@ A lightweight, reusable animated number component built with **vanilla JavaScrip
 ## 🚀 Getting Started
 
 ### 1. Include the class
+```html
+
+    <script src="https://sadhinvr.github.io/counterAnimeVanillaJS/dist/counterAnime.min.js"></script>
+
+    <link rel="stylesheet" href="https://sadhinvr.github.io/counterAnimeVanillaJS/dist/style.css">
+
+```
 
 ```js
 // Paste or import the CounterAnime class from your file
