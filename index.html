@@ -7,7 +7,7 @@
     <title> number animation </title>
 
     <link rel="stylesheet" href="style.css">
-    <script src="./src/counter.js"></script>
+    <script src="./src/counterAnime.js"></script>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
     <script>
         // Example usage:
-        const counter = new CounterNumber(1n, document.body);
+        const counter = new CounterAnime(1n, document.body);
         const btns = document.querySelector(".btns").children;
         btns[0].addEventListener("click", counter.increment);
         btns[1].addEventListener("click", counter.decrement);

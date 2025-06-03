@@ -2,13 +2,13 @@
   "name": "counteranimevanillajs",
   "version": "1.0.0",
   "description": "",
-  "main": "counter.js",
+  "main": "src/counterAnime.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx babel ./src/counter.js --out-file ./dist/temp.js && npx terser ./dist/temp.js --compress --mangle --mangle-props reserved=['increment','decrement','setNumber','getElement'] --output ./dist/counter.min.js && rm ./dist/temp.js"
+    "build": "npx babel ./src/counterAnime.js --out-file ./dist/temp.js && npx terser ./dist/temp.js --compress --mangle --mangle-props reserved=['increment','decrement','setNumber','getElement'] --output ./dist/counterAnime.min.js && rm ./dist/temp.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["counter", "animation", "counter Animation"],
+  "author": "Sadhin",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {

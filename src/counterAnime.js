@@ -1,4 +1,4 @@
-class CounterNumber {
+class CounterAnime {
     constructor(initialValue = 1n, parent) {
         this.number = BigInt(initialValue);
         this.minusActive = this.number < 0n;
