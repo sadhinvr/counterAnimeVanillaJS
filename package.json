@@ -5,7 +5,7 @@
   "main": "counter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx babel ./src/counter.js --out-file ./dist/temp.js && npx terser ./dist/temp.js --compress --mangle --output counter.min.js && rm ./dist/temp.js"
+    "build": "npx babel ./src/counter.js --out-file ./dist/temp.js && npx terser ./dist/temp.js --compress --mangle --mangle-props reserved=['increment','decrement','setNumber','getElement'] --output ./dist/counter.min.js && rm ./dist/temp.js"
   },
   "keywords": [],
   "author": "",
