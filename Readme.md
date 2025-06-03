@@ -21,24 +21,22 @@ A lightweight, reusable animated number component built with **vanilla JavaScrip
 
 ## 🚀 Getting Started
 
-### 1. Include the class
+
+### 1. Add this tag or copy the js & css in your file
+
 ```html
 
-    <script src="https://sadhinvr.github.io/counterAnimeVanillaJS/dist/counterAnime.min.js"></script>
+<script src="https://sadhinvr.github.io/counterAnimeVanillaJS/dist/counterAnime.min.js"></script>
 
-    <link rel="stylesheet" href="https://sadhinvr.github.io/counterAnimeVanillaJS/dist/style.css">
+<link rel="stylesheet" href="https://sadhinvr.github.io/counterAnimeVanillaJS/dist/style.css">
 
-```
-
-```js
-// Paste or import the CounterAnime class from your file
 ```
 
 ### 2. Basic Usage
 
 ```js
 const container = document.querySelector(".counter");
-const counter = new CounterAnime(123n, container, 5); // pad to 5 digits
+const counter = new CounterAnime(123, container, 2); // pad to 5 digits
 ```
 
 ### 3. Interact with it
@@ -46,7 +44,7 @@ const counter = new CounterAnime(123n, container, 5); // pad to 5 digits
 ```js
 counter.increment();
 counter.decrement();
-counter.setNumber("9999999999999999999999999");
+counter.setNumber("999999999");
 ```
 
 ---
@@ -54,9 +52,9 @@ counter.setNumber("9999999999999999999999999");
 ## 🕒 Example: Clock Setup
 
 ```js
-const hour = new CounterAnime(0n, document.querySelector('.hour'), 2);
-const min = new CounterAnime(0n, document.querySelector('.min'), 2);
-const sec = new CounterAnime(0n, document.querySelector('.sec'), 2);
+const hour = new CounterAnime(0, document.querySelector('.hour'), 2);
+const min = new CounterAnime(0, document.querySelector('.min'), 2);
+const sec = new CounterAnime(0, document.querySelector('.sec'), 2);
 const ampm = document.querySelector('.ampm');
 
 function updateClock() {
