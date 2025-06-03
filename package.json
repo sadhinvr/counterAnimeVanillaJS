@@ -1,0 +1,20 @@
+{
+  "name": "counteranimevanillajs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "counter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx babel ./src/counter.js --out-file ./dist/temp.js && npx terser ./dist/temp.js --compress --mangle --output counter.min.js && rm ./dist/temp.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@babel/cli": "^7.27.2",
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "terser": "^5.40.0"
+  }
+}
